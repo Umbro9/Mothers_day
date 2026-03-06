@@ -68,38 +68,38 @@ body {
   width: 100%;
   height: 100%;
   filter: blur(0.1vmin);
-  background-image: radial-gradient(
-      ellipse at top,
-      transparent 0%,
-      var(--dark-color)
-    ),
-    radial-gradient(
-      ellipse at bottom,
-      var(--dark-color),
-      rgba(145, 233, 255, 0.2)
-    ),
-    repeating-linear-gradient(
-      220deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    repeating-linear-gradient(
-      189deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    repeating-linear-gradient(
-      148deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    linear-gradient(90deg, rgb(0, 255, 250), rgb(240, 240, 240));
+
+  background-image:
+    radial-gradient(ellipse at top, transparent 0%, var(--dark-color)),
+    radial-gradient(ellipse at bottom, var(--dark-color), rgba(145,233,255,0.2)),
+    repeating-linear-gradient(220deg, rgb(0,0,0) 0px, rgb(0,0,0) 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(189deg, rgb(0,0,0) 0px, rgb(0,0,0) 19px, transparent 19px, transparent 22px),
+    repeating-linear-gradient(148deg, rgb(0,0,0) 0px, rgb(0,0,0) 19px, transparent 19px, transparent 22px),
+    linear-gradient(90deg, rgb(0,255,250), rgb(240,240,240));
+
+  background-size: 100% 100%, 100% 100%, 300px 300px, 300px 300px, 300px 300px, 100% 100%;
+  
+  animation: starsMove 180s linear infinite;
+}@keyframes starsMove {
+  0%{
+    background-position:
+      center top,
+      center bottom,
+      0px 0px,
+      0px 0px,
+      0px 0px,
+      center;
+  }
+
+  100%{
+    background-position:
+      center top,
+      center bottom,
+      600px 600px,
+      -400px 800px,
+      500px -700px,
+      center;
+  }
 }
 
 .flowers {
@@ -1686,4 +1686,58 @@ h1 {
 .back button:hover{
     background-color: #0077b2;
     color: #fff;
+}
+
+.mothers-day {
+  position: absolute;
+  bottom: 15vmin;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 510;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  color: #fddd25; /* jasny, kwiatowy kolor */
+  text-shadow: 
+    0 0 2vmin rgba(249, 253, 37, 0.8),
+    0 0 4vmin rgba(249, 253, 37, 0.6),
+    0 0 6vmin rgba(249, 253, 37, 0.4);
+  letter-spacing: 5px;
+  opacity: 0;
+  animation: mothers-day-fade 3s ease-in-out forwards, mothers-day-shine 2s infinite alternate;
+}
+
+/* Powolne pojawienie się napisu */
+@keyframes mothers-day-fade {
+  from { opacity: 0; transform: translateX(-50%) translateY(5vmin) rotate(-2deg) scale(0.8); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Delikatny błysk / pulsowanie */
+@keyframes mothers-day-shine {
+  0% { text-shadow: 0 0 2vmin rgba(249, 253, 37, 0.5), 0 0 4vmin rgba(249, 253, 37, 0.3); }
+  50% { text-shadow: 0 0 4vmin rgba(249, 253, 37, 0.8), 0 0 8vmin rgba(249, 253, 37, 0.5); }
+  100% { text-shadow: 0 0 2vmin rgba(249, 253, 37, 0.5), 0 0 4vmin rgba(249, 253, 37, 0.3); }
+}
+
+/* Dodatkowe animowane elementy jak małe gwiazdki wokół napisu */
+.mothers-day::after {
+  content: '';
+  position: absolute;
+  top: -2vmin;
+  left: 50%;
+  width: 2vmin;
+  height: 2vmin;
+  border-radius: 50%;
+  background-color: #f9fd25;
+  filter: blur(0.5vmin);
+  transform: translateX(-50%);
+  animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% { transform: translate(-50%, 0) scale(0.8); opacity: 0.5; }
+  50% { transform: translate(-50%, -2vmin) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, 0) scale(0.8); opacity: 0.5; }
 }
