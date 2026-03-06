@@ -15,6 +15,7 @@ body{
   height:100%;
   background:url("BG.png") center/cover no-repeat;
   animation: breathe 12s ease-in-out infinite alternate;
+  z-index: -2;
 }
 
 @keyframes breathe{
@@ -268,9 +269,12 @@ canvas{
 }
 
 .reset{
+    position: inherit;
+    z-index: 99999;
     text-align: center;
 }
-.reset button{
+.reset button{    position: inherit;
+    z-index: 10100;
     font-weight: 800;
     font-style: normal;
     transition: all 0.1s linear;
@@ -396,12 +400,10 @@ canvas{
     left: 0;
 }
 
-.modulo-close{
-position: inherit;
-    right: 0;
-}
+
 
 .modulo-content {
+    position: relative;
     margin-top: 10%;
     padding: 20px;
     font-size: 17px;
@@ -454,4 +456,30 @@ position: inherit;
 @keyframes fadeInUp{
     0%{ opacity: 0; transform: translateY(20px); }
     100%{ opacity: 1; transform: translateY(0); }
+}
+
+.modulo-content{
+    position: relative;
+}
+.modulo-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff6f91;
+
+    cursor: pointer;
+}
+
+.modulo-close:hover{
+    color: #ff3d6e;
+    transform: scale(1.2);
 }
