@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <div class="evnelope-wrapper">
+        <div id="evnelope" class="close">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+
+        <div class="letter" id="letter">
+            <div class="words line1"></div>
+            <div class="words line2"></div>
+            <div class="words line3"></div>
+            <div class="words line4"></div>
+        </div>
+
+        <div class="hearts">
+            <div class="heart a1"></div>
+            <div class="heart a2"></div>
+            <div class="heart a3"></div>
+        </div>
+    </div>
+    
+    <div class="side-plants">
+        <div class="plant left-plant">
+            <div class="stem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="flower"></div>
+        </div>
+        <div class="plant right-plant">
+            <div class="stem"></div>
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="flower"></div>
+        </div>
+    </div>
+
+</div>
+
+    
+    <div class="reset">
+        <button id="open">Open</button>
+        <!-- <button id="close">Close</button> -->
+    </div>
+
+    <div class="modulo   close" id="modulo">
+                <div class="reset modulo-flower"><button id="flower">Flowers</button></div>
+
+        <div class="reset modulo-close"><button id="close">Close</button></div>
+        
+<div class="modulo-content">
+    <img src="flowers.png" alt="" class="corner-flower top-left">
+    <img src="flowers.png" alt="" class="corner-flower bottom-right">
+    <h2 class="letter-header">Dla Mamy 💐</h2>
+  Kochana <span class="highlight">Mamo</span>, z okazji <span class="highlight">Dnia Kobiet</span> życzę Ci dużo <span class="highlight">spokoju</span>, <span class="highlight">radości</span> i <span class="highlight">uśmiechu</span> każdego dnia.<br>
+  Niech każdy Twój dzień przynosi <span class="highlight">miłe chwile</span>, <span class="highlight">zdrowie</span> i <span class="highlight">spełnienie</span> w tym, co robisz.<br>
+  Dziękuję za Twoją <span class="highlight">cierpliwość</span>, codzienne <span class="highlight">wsparcie</span> i wszystkie drobne rzeczy, które czynią nasze życie lepszym.<br>
+  Niech wszystko, co robisz, daje Ci <span class="highlight">satysfakcję</span>, a każdy dzień będzie pełen <span class="highlight">ciepła</span> i <span class="highlight">spokoju</span>.<br>
+  Naprawdę doceniam to, że zawsze mogę na Ciebie <span class="highlight">liczyć</span>.
+</div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
+<script>
+  document.getElementById('flower').addEventListener('click', function() {
+    window.location.href = 'html.html';
+  });
+</script>

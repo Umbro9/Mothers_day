@@ -1,0 +1,425 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+
+body{
+    background-image: url(BG.png);
+    overflow: hidden;
+}
+
+#evnelope{
+    position: relative;
+    width: 280px;
+    height: 180px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 150px;
+    background-color: #D7F0E7; /* main envelope body */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.front{
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 3;
+}
+
+.flap{
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 82px solid transparent;
+    border-top: 98px solid #A7E8D9; /* flap */
+    transform-origin: top;
+}
+
+.pocket{
+    border-left: 140px solid #B3EEDD; /* pocket sides */
+    border-right: 140px solid #B3EEDD;
+    border-bottom: 90px solid #9DE0C9; /* pocket bottom */
+    border-top: 90px solid transparent;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.letter{
+    position: relative;
+    background-color: #FFFFFF; /* letter color */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90%;
+    top: 5%;
+    border-radius: 6px;
+    box-shadow: 0 2px 26px rgba(0,0,0,0.12);
+}
+.letter {
+    background: linear-gradient(180deg, #fff7f0 0%, #ffece0 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #f1d6c0;
+}
+
+.letter:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.00) 25%,
+                     rgba(215,240,231,0.70) 55%, rgba(215,227,239,1.00) 100%);
+}
+
+.words{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 14%;
+    background-color: #C8EDE1; /* subtle mint tone for letter lines */
+}
+
+.words.line1{
+    top: 15%;
+    width: 40%;
+    height: 10%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding-left:5px ;
+}
+.words.line2{
+    top: 30%;
+}
+.words.line3{
+    top: 50%;
+}
+.words.line4{
+    top: 70%;
+}
+
+.open .flap{
+    transform: rotateX(180deg);
+    transition: transform 0.4s ease, z-index 0.6s;
+    z-index: 1;
+}
+.close .flap{
+    transform: rotateX(0deg);
+    transition: transform 0.4s 0.6s ease, z-index 1s;
+    z-index: 5;
+}
+.close .letter{
+    transform: translateY(0px);
+    transition: transform 0.4s ease, z-index 1s;
+    z-index: 1;
+}
+.open .letter{
+    transform: translateY(-60px);
+    transition: transform 0.4s 0.6s ease, z-index 0.6s;
+    z-index: 2;
+}
+
+.hearts{
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.heart{
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    width: 20px;
+    height: 20px;
+    background: #FFD700; /* flower center */
+    border-radius: 50%;
+}
+
+/* petals */
+.heart::before,
+.heart::after{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #FFB6C1; /* pink petals */
+    border-radius: 50%;
+}
+
+.heart::before{
+    top: -15px;
+    left: 0;
+    box-shadow:
+        0 30px #FFB6C1,   /* bottom */
+        -15px 15px #FFB6C1, /* left */
+        15px 15px #FFB6C1;  /* right */
+}
+
+.heart::after{
+    top: 5px;
+    left: -15px;
+    opacity: 0;
+}
+
+.close .heart{
+    opacity: 0;
+    animation: none;
+}
+
+.a1{
+    left: 20%;
+    transform: scale(0.6);
+    opacity: 1;
+    animation: animate 4s linear 1,
+               sideSway 2s ease-in-out 4 alternate,
+               spinFlower 6s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a2{
+    left: 55%;
+    transform: scale(1);
+    opacity: 1;
+    animation: animate 5s linear 1,
+               sideSway 4s ease-in-out 2 alternate,
+               spinFlower 8s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+.a3{
+    left: 10%;
+    transform: scale(0.8);
+    opacity: 1;
+    animation: animate 7s linear 1,
+               sideSway 2s ease-in-out 6 alternate,
+               spinFlower 7s linear infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0.7s;
+}
+
+@keyframes animate{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: -600px;
+    }
+}
+@keyframes sideSway{
+    0%{
+        margin-left: 0px;
+    }
+    100%{
+        margin-left: 50px;
+    }
+}
+
+@keyframes spinFlower{
+    0%{
+        transform: rotate(0deg) scale(1);
+    }
+    100%{
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.evnelope-wrapper{
+    height: 380px;
+}
+
+.reset{
+    text-align: center;
+}
+.reset button{
+    font-weight: 800;
+    font-style: normal;
+    transition: all 0.1s linear;
+    --webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #0077b2;
+    border-radius: 4px;
+    color: #0077b2;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 10px;
+    line-height: 1em;
+    text-decoration: none;
+    min-width: 120px;
+    outline: none;
+}
+
+.reset button:hover{
+    background-color: #0077b2;
+    color: #fff;
+}
+
+.modulo {
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    top: 110%; /* start poza ekranem od dołu */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 8px;
+    opacity: 0;
+    transition: top 1s ease, opacity 1s ease, transform 1s ease;
+}
+
+.modulo.open {
+    top: 50%; /* środek ekranu */
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.side-plants{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    pointer-events: none; /* żeby nie przeszkadzało w klikach */
+    z-index: 2;
+}
+
+.plant{
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    opacity: 0; /* start ukryte */
+    transform: translateY(50px); /* start poza ekranem */
+}
+
+/* lewe i prawe pozycje */
+.left-plant{ left: -50px; }
+.right-plant{ right: -50px; }
+
+/* łodyga */
+.stem{
+    width: 4px;
+    height: 60px;
+    background-color: #3a7d44;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* liście */
+.leaf{
+    width: 10px;
+    height: 6px;
+    background-color: #4caf50;
+    position: absolute;
+    border-radius: 3px;
+}
+
+.leaf1{
+    top: 15px;
+    left: -6px;
+    transform: rotate(-30deg);
+}
+
+.leaf2{
+    top: 30px;
+    left: 0px;
+    transform: rotate(30deg);
+}
+
+/* kwiatek */
+.flower{
+    width: 12px;
+    height: 12px;
+    background-color: #D7F0E7;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -4px;
+}
+
+/* animacja pojawiania się po otwarciu koperty */
+.open .plant{
+    opacity: 1;
+    transform: translateY(0);
+    animation: plantPop 1s forwards;
+}
+
+@keyframes plantPop{
+    0%{ opacity: 0; transform: translateY(50px) scale(0.5); }
+    50%{ opacity: 1; transform: translateY(-10px) scale(1.1); }
+    100%{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modulo-flower{
+    position: inherit;
+    left: 0;
+}
+
+.modulo-close{
+position: inherit;
+    right: 0;
+}
+
+.modulo-content {
+    margin-top: 10%;
+    padding: 20px;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: 'Georgia', serif; /* elegancka czcionka */
+    color: #4b3b2f; /* ciemny, przyjemny brąz zamiast czerni */
+    background-color: #fff7f0; /* delikatny kremowy papier */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #f1d6c0; /* subtelna ramka */
+}
+
+.letter-header{
+    text-align: center;
+    font-family: 'Cursive', 'Brush Script MT', cursive;
+    color: #ff6f91;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.modulo-content {
+    background: linear-gradient(180deg, #fff7f0 0%, #ffece0 100%);
+}
+
+.highlight{
+    color: #ff6f91; /* delikatny róż */
+    font-weight: bold;
+    background-color: rgba(255, 182, 193, 0.1); /* lekki pastelowy podkład */
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.corner-flower{
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+}
+
+.top-left{ top: 5px; left: 5px; }
+.bottom-right{ bottom: 5px; right: 5px; }
+
+.modulo-content {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp{
+    0%{ opacity: 0; transform: translateY(20px); }
+    100%{ opacity: 1; transform: translateY(0); }
+}
